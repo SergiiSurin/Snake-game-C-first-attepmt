@@ -1,0 +1,13 @@
+﻿  Direction.cpp
+  Figure.cpp
+  HorizontalLine.cpp
+  Point.cpp
+  Main.cpp
+  Snake.cpp
+  Timer.cpp
+  VerticalLine.cpp
+  Создание кода
+  Previous IPDB not found, fall back to full compilation.
+  All 127 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  Snake.vcxproj -> C:\Users\Админ\source\repos\Snake\x64\Release\Snake.exe
