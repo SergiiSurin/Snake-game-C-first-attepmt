@@ -51,14 +51,14 @@ int main()
     VerticalLine leftLine{ 0, 0, 54, '+' };
     VerticalLine rightLine{178, 0, 54, '+'};
     
-    upline.print_line();
-    downline.print_line();
-    leftLine.print_line();
-    rightLine.print_line();
+    upline.draw();
+    downline.draw();
+    leftLine.draw();
+    rightLine.draw();
 
     Point p{ 4,5,'*' };
-    Snake snake{ p, 6, RIGHT };
-    snake.print_line();
+    Snake snake{ p, 4, RIGHT };
+    snake.draw();
     snake.move();
 
     time = t.elapsed();

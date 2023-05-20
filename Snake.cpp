@@ -3,12 +3,15 @@
 Snake::Snake(Point tail, int length, Direction m_direction)
 {
 	direction = m_direction;
-	
+	Point p;
+	p.copyFrom(tail);
+
 	for (int i = 0; i < length; ++i)
 	{
-		Point p;
-		p.copyFrom(tail);
-		p.move(i, direction);
+		// Point p;
+		// p.copyFrom(tail);
+		// p.move(i, direction);
+		p.move(1, direction);
 		pList.push_back(p);
 	}
 }

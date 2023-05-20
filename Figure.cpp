@@ -1,6 +1,6 @@
 #include "Figure.h"
 
-void Figure::print_line() const
+void Figure::draw() const
 {
     for (auto& point : pList)
     {

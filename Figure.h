@@ -9,6 +9,6 @@ class Figure
 protected:
     std::list<Point> pList;
 public:
-    void print_line() const;
+    void draw() const;
 };
 #endif
