@@ -1,8 +1,5 @@
 #include "Point.h"
 
-Point::Point() {}
-Point::Point(int x, int y, char sym) : m_x(x), m_y(y), m_sym(sym) {}
-
 void Point::gotoxy() const
 {
     HANDLE hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -32,11 +29,6 @@ void Point::move(int offset, Direction direction)
 
 void Point::print_point() const
 {
-    /* HANDLE hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
-     COORD position = { m_x, m_y };
-
-     SetConsoleCursorPosition(hStdout, position);
-     */
     gotoxy();
     std::cout << m_sym;
 }

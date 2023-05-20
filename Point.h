@@ -13,8 +13,9 @@ private:
     char m_sym = ' ';
     
 public:
-    Point();
-    Point(int x, int y, char sym);
+    Point() {}
+    Point(int x, int y, char sym) : m_x(x), m_y(y), m_sym(sym) {}
+
     void gotoxy() const;
     void copyFrom(const Point& b);
     void move(int offset, Direction direction);

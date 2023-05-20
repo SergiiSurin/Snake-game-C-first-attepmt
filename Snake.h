@@ -14,6 +14,6 @@ public:
 	Snake(Point tail, int length, Direction m_direction);
 	void move();
 	Point GetNextPoint();
-	~Snake();
+	// ~Snake();
 };
 #endif

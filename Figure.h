@@ -7,7 +7,7 @@
 class Figure
 {
 protected:
-    std::list<Point> *pList;
+    std::list<Point> pList;
 public:
     void print_line() const;
 };

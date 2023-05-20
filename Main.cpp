@@ -45,19 +45,19 @@ int main()
     Timer t;
     COORD position = { 180, 55 };
     SetWindowSize(position);
-    
-    HorizontalLine upline(0, 178, 0, '+');
-    HorizontalLine downline(0, 178, 54, '+');
-    VerticalLine leftLine(0, 0, 54, '+');
-    VerticalLine rightLine(178, 0, 54, '+');
+
+    HorizontalLine upline{ 0, 178, 0, '+' };
+    HorizontalLine downline{ 0, 178, 54, '+' };
+    VerticalLine leftLine{ 0, 0, 54, '+' };
+    VerticalLine rightLine{178, 0, 54, '+'};
     
     upline.print_line();
     downline.print_line();
     leftLine.print_line();
     rightLine.print_line();
 
-    Point p(4,5,'*');
-    Snake snake(p, 4, RIGHT);
+    Point p{ 4,5,'*' };
+    Snake snake{ p, 6, RIGHT };
     snake.print_line();
     snake.move();
 
@@ -78,7 +78,6 @@ int main()
     Sleep(300);
     snake.move();
     Sleep(300);
-    // snake.print_line();
     snake.move();
     Sleep(300);
     snake.move();
