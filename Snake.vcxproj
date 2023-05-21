@@ -136,7 +136,6 @@
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Snake.cpp" />
-    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Direction.h" />

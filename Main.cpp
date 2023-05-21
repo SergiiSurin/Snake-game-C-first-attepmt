@@ -8,7 +8,8 @@
 #include <windows.h>
 #include <iostream>
 #include "Direction.h"
-#include "Timer.h"
+//#include "Timer.h"
+#include <conio.h>
 
 
 
@@ -41,8 +42,8 @@ void SetWindowSize(COORD newsize)//newaize recive the number of characters been 
 
 int main()
 {
-    double time;
-    Timer t;
+    //double time;
+    //Timer t;
     COORD position = { 180, 55 };
     SetWindowSize(position);
 
@@ -59,49 +60,23 @@ int main()
     Point p{ 4,5,'*' };
     Snake snake{ p, 4, RIGHT };
     snake.draw();
-    snake.move();
+    // time = t.elapsed();
 
-    time = t.elapsed();
-    
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    snake.move();
-    Sleep(300);
-    
-    std::cout << "Time elapsed: " << time << '\n';
 
-    std::cin.clear();
-    std::cin.ignore(32767, '\n');
-    std::cin.get();
+    int key = 0;
 
-    
+    while (1)
+    {
+        if (_kbhit())
+        { 
+            key = _getch();
+            snake.handleKey(key);
+        }
+        Sleep(150);
+        snake.move();
+    }
+    // std::cout << "Time elapsed: " << time << '\n';
+          
     return 0;
 
 }
