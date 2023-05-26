@@ -10,6 +10,7 @@
 #include "Direction.h"
 //#include "Timer.h"
 #include <conio.h>
+#include "FoodCreator.h"
 
 
 
@@ -42,15 +43,19 @@ void SetWindowSize(COORD newsize)//newaize recive the number of characters been 
 
 int main()
 {
+
+    srand(static_cast<unsigned int>(time(0))); // используем системные часы в качестве стартового значения
+    rand(); // пользователям Visual Studio: делаем сброс первого случайного числа
+
     //double time;
     //Timer t;
-    COORD position = { 180, 55 };
+    COORD position = { 80, 25 };
     SetWindowSize(position);
 
-    HorizontalLine upline{ 0, 178, 0, '+' };
-    HorizontalLine downline{ 0, 178, 54, '+' };
-    VerticalLine leftLine{ 0, 0, 54, '+' };
-    VerticalLine rightLine{178, 0, 54, '+'};
+    HorizontalLine upline{ 0, 78, 0, '+' };
+    HorizontalLine downline{ 0, 78, 24, '+' };
+    VerticalLine leftLine{ 0, 0, 24, '+' };
+    VerticalLine rightLine{78, 0, 24, '+'};
     
     upline.draw();
     downline.draw();
@@ -61,19 +66,32 @@ int main()
     Snake snake{ p, 4, RIGHT };
     snake.draw();
     // time = t.elapsed();
-
+    FoodCreator foodCreator(80, 25, '$');
+    Point food = foodCreator.createFood();
+    food.print_point();
 
     int key = 0;
 
     while (1)
     {
+        if (snake.eat(food))
+        {
+            food = foodCreator.createFood();
+            food.print_point();
+        }
+        else
+        {
+            snake.move();
+        }
+        Sleep(150);
+
         if (_kbhit())
         { 
             key = _getch();
             snake.handleKey(key);
         }
-        Sleep(150);
-        snake.move();
+        //Sleep(300);
+        //snake.move();
     }
     // std::cout << "Time elapsed: " << time << '\n';
           

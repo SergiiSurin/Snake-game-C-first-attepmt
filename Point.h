@@ -21,6 +21,8 @@ public:
     void move(int offset, Direction direction);
     void print_point() const;
     void clear();
+    bool isHit(Point p);
+    void eating(const Point& b);
 };
 #endif
 

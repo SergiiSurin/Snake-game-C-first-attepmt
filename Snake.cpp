@@ -48,3 +48,20 @@ void Snake::handleKey(int key)
 		break;
 	}
 }
+
+bool Snake::eat(Point food)
+{
+	Point head = getNextPoint();
+	if (head.isHit(food))
+	{
+		//food.m_sym = head.m_sym;
+		Point p;
+		p.eating(food);
+		pList.push_back(p);
+		head.print_point();
+		//food.clear();
+		return true;
+	}
+	else
+		return false;
+}

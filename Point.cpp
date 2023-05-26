@@ -38,3 +38,16 @@ void Point::clear()
     gotoxy();
     std::cout << ' ';
 }
+
+bool Point::isHit(Point p)
+{
+    return p.m_x == this->m_x && p.m_y == this->m_y;
+}
+
+void Point::eating(const Point& b)
+{
+    // Мы имеем прямой доступ к закрытым членам объекта b
+    m_x = b.m_x;
+    m_y = b.m_y;
+    m_sym = '*';
+}

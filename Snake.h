@@ -3,6 +3,7 @@
 #include "Point.h"
 #include <algorithm>
 #include <list>
+//#include "FoodCreator.h"
 
 #ifndef SNAKE_H
 #define SNAKE_H
@@ -16,5 +17,6 @@ public:
 	void move();
 	Point getNextPoint();
 	void handleKey(int Key);
+	bool eat(Point food);
 };
 #endif
