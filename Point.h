@@ -15,6 +15,7 @@ private:
 public:
     Point() {}
     Point(int x, int y, char sym) : m_x(x), m_y(y), m_sym(sym) {}
+    friend bool operator!=(const Point& p1, const Point& p2);
 
     void gotoxy() const;
     void copyFrom(const Point& b);
@@ -22,7 +23,7 @@ public:
     void print_point() const;
     void clear();
     bool isHit(Point p);
-    void eating(const Point& b);
+    
 };
 #endif
 

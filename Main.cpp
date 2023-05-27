@@ -2,8 +2,8 @@
 //
 
 #include "Point.h"
-#include "HorizontalLine.h"
-#include "VerticalLine.h"
+// #include "HorizontalLine.h"
+// #include "VerticalLine.h"
 #include "Snake.h"
 #include <windows.h>
 #include <iostream>
@@ -11,6 +11,7 @@
 //#include "Timer.h"
 #include <conio.h>
 #include "FoodCreator.h"
+#include "Walls.h"
 
 
 
@@ -52,20 +53,14 @@ int main()
     COORD position = { 80, 25 };
     SetWindowSize(position);
 
-    HorizontalLine upline{ 0, 78, 0, '+' };
-    HorizontalLine downline{ 0, 78, 24, '+' };
-    VerticalLine leftLine{ 0, 0, 24, '+' };
-    VerticalLine rightLine{78, 0, 24, '+'};
-    
-    upline.draw();
-    downline.draw();
-    leftLine.draw();
-    rightLine.draw();
+    Walls walls(80, 25);
+    walls.draw();
 
     Point p{ 4,5,'*' };
     Snake snake{ p, 4, RIGHT };
     snake.draw();
     // time = t.elapsed();
+
     FoodCreator foodCreator(80, 25, '$');
     Point food = foodCreator.createFood();
     food.print_point();
@@ -74,6 +69,10 @@ int main()
 
     while (1)
     {
+        if (walls.isHit(snake) || snake.isHitTail())
+        {
+            break;
+        }
         if (snake.eat(food))
         {
             food = foodCreator.createFood();
@@ -90,8 +89,7 @@ int main()
             key = _getch();
             snake.handleKey(key);
         }
-        //Sleep(300);
-        //snake.move();
+        
     }
     // std::cout << "Time elapsed: " << time << '\n';
           

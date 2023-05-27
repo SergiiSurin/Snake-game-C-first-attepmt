@@ -44,10 +44,8 @@ bool Point::isHit(Point p)
     return p.m_x == this->m_x && p.m_y == this->m_y;
 }
 
-void Point::eating(const Point& b)
+bool operator!=(const Point& p1, const Point& p2)
 {
-    // Мы имеем прямой доступ к закрытым членам объекта b
-    m_x = b.m_x;
-    m_y = b.m_y;
-    m_sym = '*';
+    return !(p1.m_x == p2.m_x &&
+        p1.m_y == p2.m_y);
 }

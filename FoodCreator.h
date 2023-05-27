@@ -5,17 +5,13 @@
 class FoodCreator
 {
 private:
-	int mapWidth;
-	int mapHeight;
-	char sym;
+	int m_mapWidth;
+	int m_mapHeight;
+	char m_sym;
 		
 public:
-	FoodCreator(int mapWidth, int mapHeight, char sym)
-	{
-		this->mapWidth = mapWidth;
-		this->mapHeight = mapHeight;
-		this->sym = sym;
-	}
+	FoodCreator(int mapWidth, int mapHeight, char sym):
+		m_mapWidth(mapWidth), m_mapHeight(mapHeight), m_sym(sym) {}
 	Point createFood();
 	
 	int Random(int min, int max);

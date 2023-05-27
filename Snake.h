@@ -18,5 +18,6 @@ public:
 	Point getNextPoint();
 	void handleKey(int Key);
 	bool eat(Point food);
+	bool isHitTail();
 };
 #endif

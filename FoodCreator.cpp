@@ -9,7 +9,7 @@ int FoodCreator::Random(int min, int max)
 
 Point FoodCreator::createFood()
 {
-	int x = Random(2, mapWidth - 2);
-	int y = Random(2, mapHeight - 2);
-	return Point(x, y, sym);
+	int x = Random(2, m_mapWidth - 3);
+	int y = Random(2, m_mapHeight - 2);
+	return Point(x, y, m_sym);
 }

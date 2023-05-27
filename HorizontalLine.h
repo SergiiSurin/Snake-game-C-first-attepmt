@@ -10,7 +10,7 @@ class HorizontalLine: public Figure
 public:
     HorizontalLine(int xLeft, int xRight, int y, char sym)
     {
-       for (int x = xLeft; x <= xRight; x++)
+       for (int x = xLeft; x <= xRight; ++x)
         {
             pList.push_back(Point {x, y, sym});
         }

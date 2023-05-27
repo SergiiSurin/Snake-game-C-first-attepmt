@@ -54,14 +54,21 @@ bool Snake::eat(Point food)
 	Point head = getNextPoint();
 	if (head.isHit(food))
 	{
-		//food.m_sym = head.m_sym;
-		Point p;
-		p.eating(food);
-		pList.push_back(p);
+		pList.push_back(head);
 		head.print_point();
-		//food.clear();
 		return true;
 	}
 	else
 		return false;
+}
+
+bool Snake::isHitTail()
+{
+	Point head = getNextPoint();
+	for (auto iter = pList.begin(); iter != pList.end(); ++iter)
+	{
+		if (head.isHit(*iter))
+			return true;
+	}
+	return false;
 }
